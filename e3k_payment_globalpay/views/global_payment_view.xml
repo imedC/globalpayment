@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acquirer_form_gp" model="ir.ui.view">
+            <field name="name">acquirer.form.gp</field>
+            <field name="model">payment.acquirer</field>
+            <field name="inherit_id" ref="payment.acquirer_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//group[@name="acquirer"]' position='after'>
+                    <group attrs="{'invisible': [('provider', '!=', 'globalpayment')]}">
+                        <field name="gp_id_account"/>
+                        <field name="gp_seller_account"/>
+                        <field name="gp_shared_secret_account"/>
+                        <a colspan="2" href="https://developer.globalpay.com/#!/" target="_blank">How to configure your Global payment account?</a>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="payment.payment_acquirer_global" model="payment.acquirer">
+            <field name="name">Carte de crédit</field>
+            <field name="image" type="base64" file="e3k_payment_globalpay/static/src/img/global_pay.png"/>
+            <field name="provider">globalpayment</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="view_template_id" ref="global_form"/>
+            <field name="environment">test</field>
+            <field name="pre_msg"><![CDATA[
+<p>You will be redirected to the Global payment website after clicking on the payment button.</p>]]></field>
+            <field name="gp_id_account">dummy</field>
+            <field name="gp_seller_account">dummy</field>
+            <field name="gp_shared_secret_account">dummy</field>
+        </record>
+
+    </data>
+</odoo>

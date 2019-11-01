@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-name="test.modal">
+    <div class="modal fade">
+        <div class="modal-dialog" id="myModal" style="margin:150px auto !important;">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:darkgray">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+                    <h4 class="modal-title" style="color:white;">Pay now with Global Payment</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="myForm" method="POST" action="/payment/global">
+                        <input type="hidden" name="csrf_token" t-att-value="csrf_token"/>
+                        <input type="hidden" name="invoice_num" t-att-value="invoice_num"/>
+                        <label for="cardNumber">Card Number</label>
+                        <div id="card_num">
+                        <input type="text" id="cardNumber" class="form-control" name="card-number"
+                               data-is-required="true"/>
+                        </div>
+                        <br/>
+                        <label for="cardholderName">Cardholder Name</label>
+                        <div id="card_name">
+                        <input type="text" id="cardholderName" class="form-control" name="cardholder-name"
+                               data-is-required="true"/>
+                        </div>
+                        <br/>
+                        <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label><span class="hidden-xs">Expiration</span> </label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" placeholder="MM"
+                                                           name="expiry-date-mm"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label><span class="hidden-xs"/></label>
+                                                <div class="input-group">
+
+                                                    <input type="number" class="form-control" placeholder="YYYY"
+                                                           name="expiry-date-yy"
+                                                           style="margin-left: -30px;margin-top: 5px;"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label data-toggle="tooltip" title=""
+                                                       data-original-title="3 digits code on back side of the card">CVV <i
+                                                        class="fa fa-question-circle"/></label>
+                                                <div class="error3">
+                                                <input type="number" id="cvn" name="cvn" placeholder="CVN"
+                                                       class="form-control" required=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        <p id="msg_error" style="color:red"></p>
+
+                        <button class="submit-button btn btn-primary btn-sm" type="submit">Pay Now</button>
+                        <a href="#" class="btn btn-link btn-xs" data-dismiss="modal">Go back</a>
+                        <img class="img img-responsive pull-right" width="90px"
+                             src="/e3k_payment_globalpay/static/src/img/global_pay.png"/>
+
+                    </form>
+
+<!--                     <script>-->
+<!--                            window.addEventListener("message", function (data) {-->
+<!--                            document.location.href = 'http://localhost:8069/payment/global';-->
+<!--        });</script>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </t>
+            </templates>
